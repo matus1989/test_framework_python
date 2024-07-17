@@ -6,4 +6,4 @@ class Menu:
         self.register_page = '//a[text()="Register"]'        
 
     def go_to_registraion_page(self):
-        self.driver.find_elements(By.XPATH, self.register_page).click()
+        self.driver.find_element(By.XPATH, self.register_page).click()

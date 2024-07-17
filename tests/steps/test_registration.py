@@ -6,6 +6,6 @@ scenarios('../features/registration.feature')
 
 
 @given('I am on the registration page')
-def open_registraion_page(browser,url):
+def open_registraion_page(browser):
     menu = Menu(browser)
     menu.go_to_registraion_page()

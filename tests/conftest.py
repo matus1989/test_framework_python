@@ -26,3 +26,5 @@ def main_page(browser,url):
     print (url) 
     print("-----------------------------------------------------")
     browser.get(url)
+    print(browser.title)
+    print("-----------------------------------------------------")
