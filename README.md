@@ -4,17 +4,18 @@ This README file provides instructions on how to set up, run, and understand the
 ## **Tabel of Contents**
 1. [Prerequisites](#item-one)
 2. [Installation](#item-two)
+3. [How to run]($item-three)
 
 
 <a id="item-one"></a>
-### **Prerequisites**
+### **1. Prerequisites**
 
 Ensure you have the following installed on you system:
 - Python 3.12 or higer
 - Docker
 
 <a id="item-two"></a>
-### **Installation**
+### **2. Installation**
 
 1. Clone repository
 ```sh
@@ -31,3 +32,15 @@ source ven/bin/activate
 pip install -r requirements.txt
 ```
 
+<a id="item-three"></a>
+### **3. How to run**
+To run the tests, use following command
+
+```sh
+pytest -s
+```
+<br>Test will run in default *FireFox latest* test container 
+<br>If you wanna runn test with **Chrome latest** test container please use ***--browser*** parammetr
+```sh
+pytest --browser=[firefox/chrome] -s
+```  
