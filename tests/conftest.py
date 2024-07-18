@@ -5,13 +5,24 @@ from selenium.webdriver import Remote
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import pytest
 
+def pytest_addoption(parser):
+    parser.addoption("--browser",action="store",default="firefox",help="Browser to run tests on")
+
+
+# def pytest_generate_tests(metafunc):
+#     if "browser" in metafunc.fixturenames:
+#         metafunc.parametrize("browser", metafunc.config.getoption("browser"))
+
 @pytest.fixture(scope="session", autouse=True)
-def browser():
-    print("Config")
-    container = SeleniumContainer()
+def browser(request):
+    borwser_option = request.config.getoption("browser")
+    print(borwser_option)
+
+    container = SeleniumContainer(borwser_option)
     driver = container.create()
     yield driver
     container.qiute()
+
    
 
 @pytest.fixture(scope="session",autouse=True)

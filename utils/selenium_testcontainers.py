@@ -7,9 +7,10 @@ from selenium import webdriver
 
 class SeleniumContainer:
     
-    def __init__(self) -> None:
-        self.firefox = None
+    def __init__(self, browser='firefox') -> None:
+        self.container = None
         self.driver = None
+        self.browser = browser
     
     @wait_container_is_ready(120)
     def create(self) -> webdriver:
@@ -20,11 +21,10 @@ class SeleniumContainer:
         BrowserWebDriverContainer: return instance of WebDriverContainer
         
         """
-        
         try:
-            self.firefox = BrowserWebDriverContainer(DesiredCapabilities.FIREFOX.copy())
-            self.firefox.start()
-            self.driver = self.firefox.get_driver()
+            self.container = BrowserWebDriverContainer(self.desired_capabilities_browser())
+            self.container.start()
+            self.driver = self.container.get_driver()
         except Exception as e:
             print(f"An error occured: {e}")    
         return self.driver
@@ -35,5 +35,10 @@ class SeleniumContainer:
         """
         if self.driver:
             self.driver.quit()
-        self.firefox.stop()
-            
+        self.container.stop()
+    
+    def desired_capabilities_browser(self) -> DesiredCapabilities:
+        if self.browser == 'firefox':
+            return DesiredCapabilities.FIREFOX.copy()
+        elif self.browser == 'chrome':
+            return DesiredCapabilities.CHROME.copy()
