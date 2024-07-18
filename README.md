@@ -4,7 +4,7 @@ This README file provides instructions on how to set up, run, and understand the
 ## **Tabel of Contents**
 1. [Prerequisites](#item-one)
 2. [Installation](#item-two)
-3. [How to run]($item-three)
+3. [How to run](#item-three)
 
 
 <a id="item-one"></a>
