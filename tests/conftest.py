@@ -31,7 +31,7 @@ def url():
     yield conf.url
 
    
-@given("I am on main bank main page")
+@given("I am on bank main page")
 def main_page(browser,url):
     print("-----------------------------------------------------")
     print (url) 
